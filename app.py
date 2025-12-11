@@ -109,7 +109,7 @@ def get_assistant(app, mm: MultimodalRequest) -> Tuple[Assistant, str | None]:
         assistant_model = validate_assistant_model(model=mm.assistant_model, models=[ "claude-3-sonnet-20240229", "claude-3-haiku-20240307", "claude-3-opus-20240229" ])
         return ClaudeAssistant(client=app.state.anthropic_client), assistant_model
     elif mm.assistant == "groq":
-        assistant_model = validate_assistant_model(model=mm.assistant_model, models=[ "llama3-70b-8192", "llama3-8b-8192", "mixtral-8x7b-32768", "gemma-7b-it" ])
+        assistant_model = validate_assistant_model(model=mm.assistant_model, models=[ "llama-3.1-70b-versatile", "llama3-8b-8192", "mixtral-8x7b-32768", "gemma-7b-it" ])
         return GPTAssistant(client=app.state.groq_client), assistant_model # Groq uses GPTAssistant
     
     # Should never fall through to here
